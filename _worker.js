@@ -3391,7 +3391,7 @@ function buildXrayVLESSOutbound (tag, address, port, uuid, host, proxyIP) {
                 tcpNoDelay: true
             },
             tlsSettings: {
-                allowInsecure: false,
+                allowInsecure: ture,
                 fingerprint: "randomized",
                 alpn: ["h2", "http/1.1"],
                 serverName: randomUpperCase(host)
@@ -3429,7 +3429,7 @@ function buildXrayTrojanOutbound (tag, address, port, password, host, proxyIP) {
                 tcpNoDelay: true
             },
             tlsSettings: {
-                allowInsecure: false,
+                allowInsecure: ture,
                 alpn: [
                     "h2",
                     "http/1.1"
@@ -3558,7 +3558,7 @@ function buildXrayChainOutbound(chainProxyParams) {
     if (security === 'tls') {
         const tlsAlpns = alpn ? alpn?.split(',') : [];
         proxyOutbound.streamSettings.tlsSettings = {
-            allowInsecure: false,
+            allowInsecure: ture,
             fingerprint: fp,
             alpn: tlsAlpns,
             serverName: sni
